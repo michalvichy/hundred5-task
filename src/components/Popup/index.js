@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from './Header';
 import Body from './Body';
 
@@ -21,4 +22,11 @@ class Popup extends Component {
   }
 }
 
-export default Popup;
+const mapStateToProps = (store) => {
+  return {
+    rating: store.rating,
+    closed: store.closed
+  };
+};
+
+export default connect(mapStateToProps)(Popup);
