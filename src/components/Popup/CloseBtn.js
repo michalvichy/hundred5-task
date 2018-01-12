@@ -12,7 +12,7 @@ const CloseBtn = props => {
   };
 
   return (
-    <div className="c-close" onClick={btnOnClick} />
+    <div className="c-close" onClick={btnOnClick} aria-label={'Close'} />
   )
 };
 

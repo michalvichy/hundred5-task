@@ -23,7 +23,7 @@ class Popup extends Component {
     return (
       <div>
         {!touched && (
-          <div className="c-popup">
+          <div className="c-popup" aria-label={'Rating popup'}>
             <Header title={HeaderTitle()} onClose={() => dispatch(closePopup())} />
             <Body onStarClick={(value) => dispatch(setRating(value))} />
           </div>
