@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import Body from './Body';
+import { closePopup, setRating } from '../../actions/index';
 
 import './popup.css';
-import { setRating } from '../../actions/index';
 
 const HeaderTitle = () => {
   return (
@@ -14,10 +14,12 @@ const HeaderTitle = () => {
 
 class Popup extends Component {
   render () {
+    const { dispatch } = this.props;
+
     return (
       <div className="c-popup">
-        <Header title={HeaderTitle()}/>
-        <Body onStarClick={(value) => this.props.dispatch(setRating(value))} />
+        <Header title={HeaderTitle()} onClose={() => dispatch(closePopup())} />
+        <Body onStarClick={(value) => dispatch(setRating(value))} />
       </div>
     )
   }

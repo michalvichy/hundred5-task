@@ -1,4 +1,4 @@
-import { GET_RATING, OPENED_POPUP, SET_RATING } from '../constants/index';
+import { CLOSE_POPUP, GET_RATING, OPENED_POPUP, SET_RATING } from '../constants/index';
 
 export const initialStore = {
   rating: null,
@@ -23,6 +23,11 @@ export function popupReducer(state = initialStore, action) {
       return {
         ...state,
         closed: action.payload.data.closed,
+      };
+    case `${CLOSE_POPUP}_FULFILLED`:
+      return {
+        ...state,
+        closed: action.payload,
       };
 
     default: return state;
