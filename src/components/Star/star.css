@@ -1,0 +1,24 @@
+.c-star {
+  cursor: pointer;
+}
+
+.c-star__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../assets/star-default.svg');
+  background-size: contain;
+}
+
+.c-star__value {
+  display: block;
+  margin-top: 15px;
+  font-size: 10px;
+  color: #d1d1dc;
+  text-align: center;
+}
+
+.c-star:hover > .c-star__icon,
+.c-star:hover ~ .c-star > .c-star__icon {
+  background-image: url('../../assets/star-active.svg');
+}
