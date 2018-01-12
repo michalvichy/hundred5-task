@@ -4,7 +4,7 @@ import axios from 'axios';
 const axiosAPI = axios.create({
   baseURL: 'https://api-fknaanjgow.now.sh/feedback', // Only because all endpoints begins from '/feedback'
   headers: {
-    'Authorization': 'Bearer michal',
+    'Authorization': 'Bearer Michal S',
   }
 });
 
@@ -13,13 +13,6 @@ export function setRating(value) {
   return {
     type: constants.SET_RATING,
     payload: axiosAPI.post('/rating', { rating: value }).then(() => value),
-  };
-}
-
-export function getRating() {
-  return {
-    type: constants.GET_RATING,
-    payload: axiosAPI.get('/rating'),
   };
 }
 
@@ -32,11 +25,25 @@ export function closePopup() {
   };
 }
 
-export function openedPopup() {
+export function popupTouched() {
+  const getRating = axiosAPI.get('/rating').catch(() => {
+    return {
+      data: {
+        rating: -1,
+      }
+    }
+  });
+  const openedPopup = axiosAPI.get('/closed');
+
   return {
-    type: constants.OPENED_POPUP,
-    payload: axiosAPI.get('/closed'),
-  };
+    type: constants.TOUCHED_POPUP,
+    payload: axios.all([getRating, openedPopup]).then(axios.spread((rating, closed) => {
+      return {
+        rating: rating.data.rating,
+        closed: closed.data.closed,
+      }
+    })),
+  }
 }
 
 // NOTE: I left '/' on each url on purpose. I can see it's actually an url, not some meaningless string
