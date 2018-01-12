@@ -4,7 +4,7 @@ import axios from 'axios';
 const axiosAPI = axios.create({
   baseURL: 'https://api-fknaanjgow.now.sh/feedback', // Only because all endpoints begins from '/feedback'
   headers: {
-    'Authorization': 'Bearer foobaj',
+    'Authorization': 'Bearer michal',
   }
 });
 

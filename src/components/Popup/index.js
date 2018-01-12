@@ -4,6 +4,7 @@ import Header from './Header';
 import Body from './Body';
 
 import './popup.css';
+import { setRating } from '../../actions/index';
 
 const HeaderTitle = () => {
   return (
@@ -16,7 +17,7 @@ class Popup extends Component {
     return (
       <div className="c-popup">
         <Header title={HeaderTitle()}/>
-        <Body />
+        <Body onStarClick={(value) => this.props.dispatch(setRating(value))} />
       </div>
     )
   }
