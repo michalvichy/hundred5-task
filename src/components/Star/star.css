@@ -1,5 +1,8 @@
 .c-star {
   cursor: pointer;
+  border: 0;
+  background: none;
+  -webkit-appearance: none;
 }
 
 .c-star__icon {

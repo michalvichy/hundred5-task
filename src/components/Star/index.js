@@ -6,10 +6,10 @@ const Star = props => {
   const { value, onSubmit } = props;
 
   return (
-    <div className="c-star" onClick={(event) => onSubmit(value)} aria-label={`Rate ${value}`}>
+    <button className="c-star" tabIndex={value} onClick={(event) => onSubmit(value)} aria-label={`Rate ${value}`}>
       <i className="c-star__icon" />
       <span className="c-star__value">{value}</span>
-    </div>
+    </button>
   )
 };
 
