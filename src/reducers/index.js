@@ -7,6 +7,7 @@ export const initialStore = {
   rating: null,
   closed: false,
   touched: true, // On the start, popup behaves like it was touched, because we don't know if someone set rate or closed it. We know it after success api calls
+  maxRating: 11,
 };
 
 export function popupReducer(state = initialStore, action) {

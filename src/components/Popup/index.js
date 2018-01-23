@@ -18,14 +18,14 @@ class Popup extends Component {
   }
 
   render () {
-    const { dispatch, touched } = this.props;
+    const { dispatch, touched, maxRating } = this.props;
 
     return (
       <div>
         {!touched && (
           <div className="c-popup" aria-label={'Rating popup'}>
             <Header title={HeaderTitle()} onClose={() => dispatch(closePopup())} />
-            <Body onStarClick={(value) => dispatch(setRating(value))} />
+            <Body onStarClick={(value) => dispatch(setRating(value))} maxRating={maxRating}/>
           </div>
         )}
       </div>
@@ -35,7 +35,8 @@ class Popup extends Component {
 
 const mapStateToProps = (store) => {
   return {
-    touched: store.touched
+    touched: store.touched,
+    maxRating: store.maxRating,
   };
 };
 

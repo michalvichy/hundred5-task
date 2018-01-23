@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Star from './../Star';
 
 const Body = props => {
-  const ranking = new Array(11);
-  const { onStarClick } = props;
+  const { onStarClick, maxRating } = props;
+  const ranking = new Array(maxRating);
 
   for (let i = 0, length = ranking.length; i < length; i++) {
     ranking[i] = i;
@@ -19,6 +19,11 @@ const Body = props => {
 
 Body.propTypes = {
   onStarClick: PropTypes.func.isRequired,
+  maxRating: PropTypes.number,
+};
+
+Body.defaultProps = {
+  maxRating: 11,
 };
 
 export default Body;
